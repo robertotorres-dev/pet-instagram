@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-indent */
 import React from 'react'
-import { ListOfCategories } from './components/ListOfCategories'
 import { GlobalStyles } from './styles/GlobalStyles'
-import { ListOfPhotoCards } from './components/ListOfPhotoCards'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+
+// COMPONENTS
 import { Logo } from './components/Logo'
 import { PhotoCardWithQuery } from './components/PhotoCardWithQuery'
+import { Home } from './pages/Home'
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search)
   const detailId = urlParams.get('detail')
-  console.log(detailId)
   return (
     <>
       <GlobalStyles />
@@ -17,10 +18,15 @@ export const App = () => {
       {
         detailId
           ? <PhotoCardWithQuery id={detailId} />
-          : <>
-            <ListOfCategories />
-            <ListOfPhotoCards categoryId='' />
-            </>
+          : (
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/pet/:id' element={<Home />} />
+              </Routes>
+            </BrowserRouter>
+            )
+
       }
     </>
   )
