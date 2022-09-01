@@ -7,7 +7,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { Logo } from './components/Logo'
 import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
-import { NavBar } from './components/Navbar'
+import { NavBar } from './components/NavBar'
 
 export const App = () => {
   return (
