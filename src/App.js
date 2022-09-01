@@ -5,29 +5,21 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
 // COMPONENTS
 import { Logo } from './components/Logo'
-import { PhotoCardWithQuery } from './components/PhotoCardWithQuery'
 import { Home } from './pages/Home'
+import { Detail } from './pages/Detail'
 
 export const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search)
-  const detailId = urlParams.get('detail')
   return (
     <>
       <GlobalStyles />
+      <BrowserRouter>
       <Logo />
-      {
-        detailId
-          ? <PhotoCardWithQuery id={detailId} />
-          : (
-            <BrowserRouter>
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/pet/:id' element={<Home />} />
-              </Routes>
-            </BrowserRouter>
-            )
-
-      }
+      <Routes>
+        <Route path='/detail/:detailId' element={<Detail />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/pet/:categoryId' element={<Home />} />
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
