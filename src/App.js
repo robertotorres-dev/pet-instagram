@@ -7,6 +7,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { Logo } from './components/Logo'
 import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
+import { NavBar } from './components/Navbar'
 
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/pet/:categoryId' element={<Home />} />
       </Routes>
+      <NavBar />
       </BrowserRouter>
     </>
   )
