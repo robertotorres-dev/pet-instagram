@@ -4,8 +4,8 @@ import { UserForm } from '../components/UserForm'
 import { useMutationRegister } from '../hoc/useMutationRegister'
 
 export const NotRegisteredUser = () => {
-  const { mutation, mutationLoading, mutationError } = useMutationRegister()
-  console.log(mutation, mutationLoading, mutationError)
+  const { mutation, mutationData, mutationLoading, mutationError } = useMutationRegister()
+  console.log(mutation, mutationData, mutationLoading, mutationError)
 
   return (
     <Context.Consumer>
@@ -18,9 +18,11 @@ export const NotRegisteredUser = () => {
             mutation({ variables })
               .then(activateAuth)
           }
+
+          const errorMessage = mutationError && 'El usuario ya existe o hay algún prlblema'
           return (
             <>
-              <UserForm title='Registrarse' onSubmit={onSubmit} />
+              <UserForm disabled={mutationLoading} error={errorMessage} title='Registrarse' onSubmit={onSubmit} />
               <UserForm title='Iniciar Sesión' onSubmit={activateAuth} />
             </>
           )
