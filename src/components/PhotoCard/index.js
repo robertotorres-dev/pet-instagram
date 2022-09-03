@@ -10,8 +10,7 @@ const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const [show, element] = useNearScreen()
-  const { mutation, mutationLoading, mutationError } = useMutationToogleLike()
-  console.log(mutation, mutationLoading, mutationError)
+  const { mutation } = useMutationToogleLike()
 
   const key = `like-${id}`
   const [liked, setLiked] = useLocalStorage(key, false)

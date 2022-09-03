@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-indent */
-import React from 'react'
+import React, { useContext } from 'react'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import Context from './Context'
+import { Context } from './Context'
 
 // COMPONENTS
 import { Logo } from './components/Logo'
@@ -14,6 +14,7 @@ import { User } from './pages/User'
 import { NotRegisteredUser } from './pages/NotRegisteredUser'
 
 export const App = () => {
+  const { isAuth } = useContext(Context)
   return (
     <>
       <GlobalStyles />
@@ -25,20 +26,17 @@ export const App = () => {
           <Route path='/detail/:detailId' element={<Detail />} />
         </Routes>
 
-        <Context.Consumer>
-          {
-            ({ isAuth }) =>
-              isAuth
-                ? <Routes>
-                  <Route path='/favs' element={<Favs />} />
-                  <Route path='/user' element={<User />} />
-                  </Routes>
-                : <Routes>
-                  <Route path='/favs' element={<NotRegisteredUser />} />
-                  <Route path='/user' element={<NotRegisteredUser />} />
-                  </Routes>
-          }
-        </Context.Consumer>
+        {
+          isAuth
+            ? <Routes>
+              <Route path='/favs' element={<Favs />} />
+              <Route path='/user' element={<User />} />
+              </Routes>
+            : <Routes>
+              <Route path='/favs' element={<NotRegisteredUser />} />
+              <Route path='/user' element={<NotRegisteredUser />} />
+              </Routes>
+        }
 
         <NavBar />
       </BrowserRouter>
