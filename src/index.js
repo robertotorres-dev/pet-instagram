@@ -44,9 +44,9 @@ const container = document.getElementById('app')
 const root = createRoot(container)
 
 root.render(
-  <Context.Provider>
-    <ApolloProvider client={client}>
+  <ApolloProvider client={client}>
+    <Context.Provider>
       <App />
-    </ApolloProvider>
-  </Context.Provider>
+    </Context.Provider>
+  </ApolloProvider>
 )
