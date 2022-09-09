@@ -76,7 +76,17 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: {
-      disableDotRule: true
+      disableDotRule: true,
+      historyApiFallback: true
     }
+  },
+  resolve: {
+    // ...
+    alias: {
+      // ...
+      'react-dom$': 'react-dom/profiling',
+      'scheduler/tracing': 'scheduler/tracing-profiling'
+    }
+    // ...
   }
 }
