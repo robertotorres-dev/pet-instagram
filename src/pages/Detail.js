@@ -5,7 +5,7 @@ import { Layout } from '../components/Layout'
 // COMPONENTS
 import { PhotoCardWithQuery } from '../components/PhotoCardWithQuery'
 
-export const Detail = () => {
+export default () => {
   const params = useParams()
   return (
     <>
