@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // COMPONENTS
 import { PhotoCard } from '../PhotoCard'
@@ -12,4 +13,8 @@ export const PhotoCardWithQuery = ({ id }) => {
   return (
     <PhotoCard {...data.photo} />
   )
+}
+
+PhotoCardWithQuery.propTypes = {
+  id: PropTypes.string.isRequired
 }

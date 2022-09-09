@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // COMPONENTS
 import { PhotoCard } from '../PhotoCard'
@@ -14,4 +15,8 @@ export const ListOfPhotoCards = ({ categoryId }) => {
       {data.photos.map((photo) => <PhotoCard key={photo.id} {...photo} />)}
     </ul>
   )
+}
+
+ListOfPhotoCards.propTypes = {
+  categoryId: PropTypes.string
 }
