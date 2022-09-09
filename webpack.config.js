@@ -25,6 +25,7 @@ module.exports = {
       scope: '/',
       background_color: '#fff',
       theme_color: '#b1a',
+      prefer_related_applications: true,
       icons: [
         {
           src: path.resolve('src/assets/icon.png'),
@@ -49,7 +50,7 @@ module.exports = {
           }
         },
         {
-          urlPattern: new RegExp('https://pet-instagram.vercel.app/'),
+          urlPattern: new RegExp('https://petgram-api-eta.vercel.app/'),
           handler: 'NetworkFirst',
           options: {
             cacheName: 'api'
