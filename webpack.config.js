@@ -15,7 +15,6 @@ module.exports = {
       template: 'src/index.html'
     }),
     new WebpackPwaManifestPlugin({
-      filename: 'manifest.webmanifest',
       name: 'Pet nstagram - Tu app de fotos de mascotas',
       short_name: 'Pet-nstragram 🐹',
       description: 'Con esta app puedes encontrar fotos de animales favoritos',
